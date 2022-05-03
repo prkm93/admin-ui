@@ -1,0 +1,4 @@
+.page-controls {
+    display: flex;
+    justify-content:space-between;
+}

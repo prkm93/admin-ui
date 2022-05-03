@@ -1,0 +1,25 @@
+.pagination-btns {
+    margin-right: 35%;
+}
+
+.pagination-btn {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(0, 140, 255);
+    border-radius: 50%;
+    border: none;
+    margin: 4px;
+    color: white;
+}
+
+.pagination-btn-selected {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(0, 140, 255);
+}
+
+.pagination-btn-arrows {
+    background-color: rgb(168, 168, 168);
+    color: white;
+}

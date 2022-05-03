@@ -1,0 +1,47 @@
+.table-row {
+    font-weight: lighter ;
+}
+
+.table-data {
+    padding: 15px !important;
+}
+
+.table-data-selected {
+    background-color: rgb(243, 243, 243) !important;
+}
+
+.table-input-box-readOnly {
+    width: 80%;
+    border: none;
+    text-overflow: ellipsis;
+}
+
+.table-input-box-edit {
+    width: 80%;
+    border: 2px solid rgb(131, 204, 253);
+}
+
+.table-input-box-selected {
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+    background-color: rgb(243, 243, 243) !important;
+}
+.table-input-box-edit:focus {
+    outline: rgb(131, 204, 253);
+}
+
+.table-input-checkbox {
+    margin-top: 14px;
+    width: 15px;
+    height: 15px;
+}
+
+.table-edit-action {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.table-delete-action {
+    cursor: pointer;
+}
