@@ -23,8 +23,6 @@ function App() {
 
   useEffect(() => {
     fetchUsersAPI(setUsersData, setUsersDataList);
-
-    return (() => fetchUsersAPI(setUsersData, setUsersDataList));
   }, []);
   
 
@@ -191,6 +189,29 @@ function App() {
 
   }
 
+  /**
+   *  function to perform sorting based on column name
+   * @param {*} col column name based on which sorting to be performed
+   * @param {*} isAscending if needs to be sorted in ascending or descending order
+   */
+  const handleSort = (col, isAscending) => {
+    
+    const tempData = structuredClone(usersData);
+    
+    tempData.sort((a,b) => {
+
+      if (isAscending) {
+        return a[col] > b[col]  ? -1 : 1;
+      } else {
+        return a[col] < b[col]  ? -1 : 1;
+      }
+
+    });
+
+    setUsersData(tempData);
+    setUsersDataList(tempData);
+  }
+
   return (
     <Container>
       <Search handleSearch={handleSearch}/>   
@@ -202,6 +223,7 @@ function App() {
         editUserHandler={editUserHandler}
         saveUserHandler={saveUserHandler}
         deleteUserHandler={deleteUserHandler}
+        handleSort={handleSort}
       />
       <div className="page-controls">
         <div>

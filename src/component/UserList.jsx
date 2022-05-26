@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Users from "./Users";
 import { Table } from "react-bootstrap";
+import { ArrowDown , ArrowUp } from "react-bootstrap-icons";
+import { config  } from "../config/constant";
 import "./UserList.css";
 
 const UserList = (props) => {
+
+    const [columnSortOrder, setColumnSortOrder] = useState({
+        name: false,
+        email: false,
+        role: false
+    });
 
     const { 
             userList, 
@@ -13,12 +21,27 @@ const UserList = (props) => {
             selectUserHandler, 
             editUserHandler, 
             deleteUserHandler, 
-            saveUserHandler 
+            saveUserHandler,
+            handleSort
     } = props;
 
 
+    /**
+     *  function invoked when column name is clicked
+     * @param {*} colName column Name 
+     */
+    const  columnSortHandler = (colName) => {
+        setColumnSortOrder(prevState => {
+            return {
+                ...prevState,
+                [colName]: !prevState[colName]
+            }
+        });
+        handleSort(colName, columnSortOrder[colName]);
+    }
+
     return (
-        <Table bordered>
+        <Table bordered responsive>
             <thead>
                 <tr>
                     <th className="table-header table-data-checkbox text-center">
@@ -31,10 +54,26 @@ const UserList = (props) => {
                             onChange={(e) => selectAllHandler(e)}
                         />
                     </th>
-                    <th className="table-header">Name</th>
-                    <th className="table-header">Email</th>
-                    <th className="table-header">Role</th>
-                    <th className="table-header text-center">Actions</th>
+                    <th 
+                        className="table-header" 
+                        onClick={() => columnSortHandler(config.name_col)}>
+                            Name {columnSortOrder.name ? <ArrowDown className="arrow"/> : <ArrowUp className="arrow"/>}
+                    </th>
+                    <th 
+                        className="table-header" 
+                        onClick={() => columnSortHandler(config.email_col)}>
+                            Email {columnSortOrder.email ? <ArrowDown className="arrow"/> : <ArrowUp className="arrow"/>}
+                    </th>
+                    <th 
+                        className="table-header" 
+                        onClick={() => columnSortHandler(config.role_col)}>
+                            Role {columnSortOrder.role ? <ArrowDown className="arrow"/> : <ArrowUp className="arrow"/>}
+                    </th>
+                    <th 
+                        className="table-header text-center"
+                    >
+                        Actions
+                    </th>
                 </tr>
             </thead>
             <tbody>

@@ -8,6 +8,7 @@
 
 .table-data-selected {
     background-color: rgb(243, 243, 243) !important;
+    padding: 15px !important;
 }
 
 .table-input-box-readOnly {
@@ -24,7 +25,6 @@
 .table-input-box-selected {
     border: none;
     width: 100%;
-    padding: 5px 10px;
     background-color: rgb(243, 243, 243) !important;
 }
 .table-input-box-edit:focus {

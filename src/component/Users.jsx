@@ -9,7 +9,7 @@ const Users = (props) => {
     const emailRef = useRef(null);
     const roleRef = useRef(null);
 
-    const {selectUserHandler, editUserHandler, saveUserHandler,  deleteUserHandler} = props;
+    const { selectUserHandler, editUserHandler, saveUserHandler,  deleteUserHandler } = props;
     const { id, name, email, role, ifEdit, isSelected } =  props.user;
 
     return (
